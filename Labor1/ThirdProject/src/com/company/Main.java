@@ -6,12 +6,13 @@ public class Main {
 	String text = "ALMAFA";
 	int count = 0 ;
 
-	for(int i = 0; i <= text.length(); i++)
+	for(int i = 0; i < text.length(); i++)
     {
         for(int j = 0; j <= count; j++)
         {
-            System.out.println(text.charAt(j));
+            System.out.print(text.charAt(j));
         }
+        System.out.println();
 
         count++;
     }
