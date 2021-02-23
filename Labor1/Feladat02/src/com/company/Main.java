@@ -4,26 +4,16 @@ public class Main {
 
     public static byte getBit(int number, int order)
     {
-        int count = 0;
-        byte actBit = (byte)(number % 2);
-        number /=2;
+        String bit = Integer.toBinaryString(number);
 
-        for(int i = 0; i <= count; i++)
+        if((bit.length() - 1) < order)
         {
-            if(count == order)
-            {
-                return actBit;
-            }else
-            {
-                actBit = (byte)(number % 2);
-                number /= 2;
-                count++;
-            }
+            return -1;
 
-
+        }else
+        {
+            return bit.charAt((bit.length( ) - 1) - order) == '0' ? (byte)0 : (byte)1;
         }
-
-        return 1;
 
     }
 
