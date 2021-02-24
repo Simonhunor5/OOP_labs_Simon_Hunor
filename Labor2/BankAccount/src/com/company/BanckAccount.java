@@ -5,8 +5,10 @@ public class BanckAccount {
     private double balance;
     private String accountNumber;
 
-    public BanckAccount()
+
+    public BanckAccount(String accountNumber)
     {
+        this.accountNumber = accountNumber;
         this.balance = 0;
     }
 
@@ -21,9 +23,29 @@ public class BanckAccount {
         return this.balance;
     }
 
-    public void setAccountNumber(String accountNumber)
+    public String getAccountNumber()
     {
-        this.accountNumber = accountNumber;
+        return this.accountNumber;
+    }
+
+    public void deposit(double amount)
+    {
+        if(amount > 0)
+        {
+            this.balance += amount;
+        }
+    }
+
+    public boolean withdraw(double amount)
+    {
+        if((this.balance - amount) < 0)
+        {
+            return false;
+        }else
+        {
+            this.balance -= amount;
+            return true;
+        }
     }
 
     @Override
