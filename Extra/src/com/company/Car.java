@@ -185,7 +185,7 @@ public class Car {
         String s2 = "two-seater";
         s1 = Boolean.toString(bool1);
         s2 = Boolean.toString(bool2);
-        return "This car is a " + getCarBrand() + " " + getCarType() + " " + getFuel() + "car which was manufactured in " + getYearOfManufacture() + ". It has" + getColor() + " color and the number of kilometers traveled is: " + getNumberOfKilometers();
+        return "This car is a " + getCarBrand() + " " + getCarType() + " " + getFuel() + " car which was manufactured in " + getYearOfManufacture() + ". It has " + getColor() + " color and the number of kilometers traveled is: " + getNumberOfKilometers();
 
     }
 }
