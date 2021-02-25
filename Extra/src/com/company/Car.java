@@ -67,4 +67,125 @@ public class Car {
         }
     }
 
+    public String getCarBrand()
+    {
+        return this.carBrand;
+    }
+
+    public void setCarBrand(String carBrand)
+    {
+        this.carBrand = carBrand;
+    }
+
+    public String getCarType()
+    {
+        return this.carType;
+    }
+
+    public void setCarType(String carType)
+    {
+        this.carType = carType;
+    }
+
+    public Color getColor()
+    {
+        return this.color;
+    }
+
+    public void setColor(Color color)
+    {
+        this.color = color;
+    }
+
+    public FuelType getFuel()
+    {
+        return this.fuel;
+    }
+
+    public void setFuel(FuelType fuel)
+    {
+        this.fuel = fuel;
+    }
+
+    public int getNumberOfKilometers()
+    {
+        return this.numberOfKilometers;
+    }
+
+    public void setNumberOfKilometers(int numberOfKilometers)
+    {
+        this.numberOfKilometers = numberOfKilometers;
+    }
+
+    public int getNumberOfPassengers()
+    {
+        return this.numberOfPassengers;
+    }
+
+    public void setNumberOfPassengers(int numberOfPassengers)
+    {
+        this.numberOfPassengers = numberOfPassengers;
+    }
+
+    public int getYearOfManufacture()
+    {
+        return this.yearOfManufacture;
+    }
+
+    public void setYearOfManufacture(int yearOfManufacture)
+    {
+        this.yearOfManufacture = yearOfManufacture;
+    }
+
+    public int getSpeed()
+    {
+        return this.speed;
+    }
+
+    public void setSpeed(int speed)
+    {
+        this.speed = speed;
+    }
+
+    public void changeSpeed(int speed)
+    {
+        int speedIndicator;
+        if(speed < 0)
+        {
+            System.out.println("Your speed is cant be negative! ");
+        }else
+        {
+            speedIndicator = this.speed - speed;
+            setSpeed(speed);
+        }
+    }
+
+    public void moveCar(int numberOfKilometers)
+    {
+        if(numberOfKilometers < 1)
+        {
+            System.out.println("You can't travel 0 Kilometers or less! ");
+        }else
+        {
+            setNumberOfKilometers(numberOfKilometers);
+        }
+    }
+
+    public void resetMileage()
+    {
+        setNumberOfKilometers(0);
+    }
+
+    @Override
+    public String toString()
+    {
+        boolean bool1 = true;
+        boolean bool2 = false;
+        String s1 = "family";
+        String s2 = "two-seater";
+        s1 = Boolean.toString(bool1);
+        s2 = Boolean.toString(bool2);
+        return "This car is a " + getCarBrand() + " " + getCarType() + " " + getFuel() + "car which was manufactured in " + getYearOfManufacture() + ". It has" + getColor() + " color and the number of kilometers traveled is: " + getNumberOfKilometers();
+
+    }
 }
