@@ -179,13 +179,14 @@ public class Car {
     @Override
     public String toString()
     {
-        boolean bool1 = true;
-        boolean bool2 = false;
-        String s1 = "family";
-        String s2 = "two-seater";
-        s1 = Boolean.toString(bool1);
-        s2 = Boolean.toString(bool2);
-        return "This car is a " + getCarBrand() + " " + getCarType() + " " + getFuel() + " car which was manufactured in " + getYearOfManufacture() + ". It has " + getColor() + " color and the number of kilometers traveled is: " + getNumberOfKilometers();
+        if(getNumberOfPassengers() == 5){
+            return "This car is a " + getCarBrand() + " " + getCarType() + " " + getFuel() + " family car which was manufactured in " + getYearOfManufacture() + ". It has " + getColor() + " color and the number of kilometers traveled is: " + getNumberOfKilometers();
+
+        }else
+        {
+            return "This car is a " + getCarBrand() + " " + getCarType() + " " + getFuel() + " two-seater car which was manufactured in " + getYearOfManufacture() + ". It has " + getColor() + " color and the number of kilometers traveled is: " + getNumberOfKilometers();
+        }
+
 
     }
 }
