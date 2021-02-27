@@ -155,7 +155,7 @@ public class Car {
             System.out.println("Your speed is cant be negative! ");
         }else
         {
-            speedIndicator = this.speed - speed;
+            speedIndicator = speed - this.speed;
             setSpeed(speed);
         }
     }
@@ -167,13 +167,13 @@ public class Car {
             System.out.println("You can't travel 0 Kilometers or less! ");
         }else
         {
-            setNumberOfKilometers(numberOfKilometers);
+            this.numberOfKilometers += numberOfKilometers;
         }
     }
 
     public void resetMileage()
     {
-        setNumberOfKilometers(0);
+        this.numberOfKilometers = 0;
     }
 
     @Override
