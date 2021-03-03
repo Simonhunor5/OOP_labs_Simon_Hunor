@@ -8,25 +8,45 @@ public class Customer {
 
     private String firstName, lastName;
     private BankAccount account;
-    private int numAccounts;
+    private int numAccounts = 0;
     private BankAccount[] accounts = new BankAccount[ MAX_ACCOUNTS ];
 
-    public Customer(String firstName, String lastName, int numAccounts, BankAccount[] accounts, int MAX_ACCOUNTS) {
+    public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        if(numAccounts > MAX_ACCOUNTS)
+    }
+
+    public void addAccount(BankAccount account) {
+        if(this.numAccounts < MAX_ACCOUNTS)
         {
-            System.out.println("YOu cant add moree accounts!");
-        }else {
-                
+            this.accounts[numAccounts] = account;
+            this.numAccounts++;
+        }else
+        {
+            System.out.println("You cant add more accounts!");
+        }
+    }
+    public BankAccount getAccount(String accountNumber){
+        for(int i = 0; i < this.numAccounts; i++)
+        {
+            if(this.accounts[i].getAccountNumber() == accountNumber)
+            {
+                return this.accounts[i];
+            }
+        }
+        return null;
+    }
+
+    public void setAccount( BankAccount account){
+        if(this.numAccounts  - 1 <  MAX_ACCOUNTS)
+        {
+            this.accounts[numAccounts] = account;
         }
     }
 
-    public void setAccount(BankAccount account) {
-        this.account = account;
-    }
-    public BankAccount getAccount(){
-        return this.account;
+    public int getNumAccounts()
+    {
+        return this.numAccounts;
     }
 
     public String getFirstName(){
@@ -41,23 +61,26 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public void closeAccount(){
-        this.account = null;
+    public void closeAccount(String accountNumber){
+        for(int i = 0; i < MAX_ACCOUNTS; i++)
+        {
+            if(this.accounts[i].getAccountNumber() == accountNumber)
+            {
+               this.accounts[i] = null;
+            }
+        }
     }
 
 
 
     @Override
+    public String toString() {
 
-    public String toString(){
-        String result = firstName + " " + lastName + " ";
-        if(this.account != null)
-        {
-            result += account;
-        }else
-        {
-            result += " (no account)";
+        StringBuffer result = new StringBuffer();
+        result.append(firstName + ' ' + lastName + " accounts:\n");
+        for(int i = 0; i < numAccounts; i++){
+            result.append( "\t" + accounts[i].toString() +"\n");
         }
-        return result;
+        return result.toString();
     }
 }
