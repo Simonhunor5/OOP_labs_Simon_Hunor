@@ -29,7 +29,7 @@ public class Customer {
     public BankAccount getAccount(String accountNumber){
         for(int i = 0; i < this.numAccounts; i++)
         {
-            if(this.accounts[i].getAccountNumber() == accountNumber)
+            if(this.accounts[i].getAccountNumber().equals(accountNumber))
             {
                 return this.accounts[i];
             }
@@ -62,11 +62,17 @@ public class Customer {
     }
 
     public void closeAccount(String accountNumber){
-        for(int i = 0; i < MAX_ACCOUNTS; i++)
+        for(int i = 0; i < this.numAccounts; i++)
         {
-            if(this.accounts[i].getAccountNumber() == accountNumber)
+            if(this.accounts[i].getAccountNumber().equals(accountNumber))
             {
                this.accounts[i] = null;
+               this.numAccounts--;
+
+                if (this.numAccounts - i >= 0)
+                {
+                    System.arraycopy(this.accounts, i + 1, this.accounts, i, this.numAccounts - i);
+                }
             }
         }
     }

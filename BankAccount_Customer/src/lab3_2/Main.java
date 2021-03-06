@@ -26,15 +26,15 @@ public class Main {
 
         for(int i = 0; i < 9; i++)
         {
-            double rand_dub1 = rand.nextDouble();
-            double rand_dub2 = rand.nextDouble();
+            int rand_dub1 = rand.nextInt(1000);
+            int rand_dub2 = rand.nextInt(1000);
 
             if(i < 5)
             {
                 customer1.getAccount("OTP0000" + (i + 1)).deposit(rand_dub1);
             }
 
-            customer1.getAccount("BRD0000" + (i + 1)).deposit(rand_dub2);
+            customer2.getAccount("BRD0000" + (i + 1)).deposit(rand_dub2);
         }
 
         System.out.println(customer1);
