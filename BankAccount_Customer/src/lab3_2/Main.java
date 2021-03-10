@@ -1,6 +1,9 @@
 package lab3_2;
 
 import lab3_1.BankAccount;
+
+import java.util.ArrayList;
+
 import java.util.Random;
 
 public class Main {
@@ -45,6 +48,30 @@ public class Main {
 
         System.out.println(customer1);
         System.out.println(customer2);
+
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+
+        customers.add(new Customer("Jhon", "DOE"));
+
+        System.out.println(customers);
+
+        for(int i = 0; i < 6; i++)
+        {
+            customers.get(0).addAccount(new BankAccount("BNC0000" + (i + 1)));
+        }
+
+        System.out.println(customers);
+
+        for(int i = 0; i < 6; i++)
+        {
+            customers.get(0).getAccount("BNC0000" + (i + 1)).deposit(100 * i);
+        }
+
+        System.out.println(customers);
+
+        customers.get(0).closeAccount("BNC00002");
+
+        System.out.println(customers);
 
     }
 }
