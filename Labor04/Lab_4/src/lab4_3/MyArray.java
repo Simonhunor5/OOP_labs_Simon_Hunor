@@ -14,20 +14,27 @@ public class MyArray {
     public MyArray(int length) {
         this.length = length;
 
-        for (int i = 0; i < length; i++)
-        {
-            this.elements[i] = 0;
-        }
+        this.elements = new double[length];
     }
 
     public MyArray(double[] elements) {
+
+        this.length = elements.length;
+
+        this.elements = new double[elements.length];
+
         for (int i = 0; i < elements.length; i++) {
             this.elements[i] = elements[i];
         }
     }
 
     public MyArray(MyArray array) {
+
+
         this.length = array.length;
+
+        this.elements = new double[this.length];
+
         for (int i = 0; i < array.length; i++) {
             this.elements[i] = array.elements[i];
         }
@@ -47,6 +54,8 @@ public class MyArray {
         }
 
         this.length = scanner.nextInt();
+
+        this.elements = new double[this.length];
 
         for (int i = 0; i < this.length; i++) {
             this.elements[i] = scanner.nextInt();
@@ -97,11 +106,11 @@ public class MyArray {
         Arrays.sort(this.elements);
     }
 
-    public void print(MyArray array)
+    public void print(String name)
     {
-        for(int i = 0; i < array.length; i++)
+        for(int i = 0; i < this.length; i++)
         {
-            System.out.print(array.elements[i] + " ");
+            System.out.print(this.elements[i] + " ");
         }
     }
 }
