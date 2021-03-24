@@ -108,9 +108,14 @@ public class MyArray {
 
     public void print(String name)
     {
+
+        System.out.print(name + ": ");
+
         for(int i = 0; i < this.length; i++)
         {
-            System.out.print(this.elements[i] + " ");
+            System.out.printf("%.2f " , this.elements[i]);
         }
+
+        System.out.println();
     }
 }
