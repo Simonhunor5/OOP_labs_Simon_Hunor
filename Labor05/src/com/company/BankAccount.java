@@ -12,8 +12,8 @@ public class BankAccount {
 
     public BankAccount()
     {
-        this.accountNumber = createAccountNumber();
         numAccounts++;
+        this.accountNumber = createAccountNumber();
         this.balance = 0;
 
     }
@@ -21,20 +21,24 @@ public class BankAccount {
     private static String createAccountNumber()
     {
 
-        if(numAccounts > 10000000)
+        if(numAccounts < 10000000)
         {
-            String zeros = "";
+            String result = "";
 
             int prefixlength = PREFIX.length();
             int numAccountsLength = String.valueOf(numAccounts).length();
             int zerosCount = ACCOUNT_NUMBER_LENGTH - prefixlength - numAccountsLength;
 
+            result += PREFIX;
+
             for (int i = 0; i < zerosCount; i++)
             {
-                zeros += "0";
+                result += "0";
             }
 
-            return PREFIX  + zeros + String.valueOf(numAccounts);
+            result += String.valueOf(numAccounts);
+
+            return result;
         }
 
         return null;
