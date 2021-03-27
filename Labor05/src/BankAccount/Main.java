@@ -1,4 +1,6 @@
-package com.company;
+package BankAccount;
+
+
 
 public class Main {
 
